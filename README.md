@@ -52,6 +52,13 @@ This is the starter for the Flask React project.
    folder whenever you change your code, keeping the production version up to
    date.
 
+### To run the React app in development:
+
+1. `cd` into the __react-vite__ folder.
+2. Run `npm install` to install dependencies.
+3. Launch it with `npm run dev`.
+4. In your browser, navigate to [`localhost:5173`].
+
 ## Deployment through Render.com
 
 First, recall that Vite is a development dependency, so it will not be used in
