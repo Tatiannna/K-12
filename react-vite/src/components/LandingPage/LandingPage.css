@@ -1,7 +1,40 @@
 .landing-page__div {
-    border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.landing-page__navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 15px;
+  height: 30px;
+  border: 1px solid blue;
+  background-color: aqua;
 }
 
 .landing-page__main-content {
-    border: 1px solid blue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.landing-page__main-content-info {
+  border: 1px solid gold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
