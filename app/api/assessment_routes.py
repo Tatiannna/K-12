@@ -1,5 +1,15 @@
 from flask import Blueprint
 
+import google.generativeai as genai
+import os
+
+# grab api key from env
+GOOGLE_API_KEY = os.environ.get("GOOGLE_GEMINI_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)
+# initialize model
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# set up API route
 assessment_routes = Blueprint('assessments', __name__)
 
 
@@ -13,9 +23,15 @@ def generate_assessment():
     grade_level = 1
     subject = "math"
 
-    # connect to the LLM API
-        # Gather the API key
-            # Gather the necessary Libraries
+    prompt = f"""Generate an assessment for grade {grade_level}, and
+    focusing in the subject of {subject}.
+    """
+
+    # Generate response from Gemini
+    response = model.generate_content(prompt)
+
+    print(type(response.text))
+    print(response.text)
 
     # Parse through the response if necessary
 
