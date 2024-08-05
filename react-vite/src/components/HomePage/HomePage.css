@@ -1,0 +1,44 @@
+.title-container {
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.grade-level-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.grade-level {
+    border: none;
+    padding: 20px 10px;
+    font-size: 18px;
+    width: 200px;
+    text-align: center;
+    background-color: #e8e8e8;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 25px 0px;
+    text-decoration: none;
+    color: black;
+}
+
+.grade-level:active {
+    transform: scale(.98);
+}
+
+.grade-level:focus {
+    outline: none;
+}
+
+.grade-level:hover {
+    background-color: #dcdcdc;
+}
