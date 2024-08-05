@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
 import google.generativeai as genai
 import os
@@ -29,14 +29,26 @@ def generate_assessment():
 
     # Generate response from Gemini
     response = model.generate_content(prompt)
+    # grab the text from the response
+    text = response.text
 
-    print(type(response.text))
-    print(response.text)
+    # convert text to json
+    return jsonify(text), 200
 
-    # Parse through the response if necessary
-
-    # serialize data as json
-
-    # return json data
-
-    return "hello world", 200
+"""
+fetch('/api/assessments', {
+  method: 'POST', // Method type
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); // Parse JSON data from the response
+  })
+  .then(data => {
+    console.log("data: ", data); // Handle the data received from the server
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+"""
