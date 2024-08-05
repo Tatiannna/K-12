@@ -32,6 +32,8 @@
   cursor: pointer;
   background-color: rgb(66,85,255);
   color: white;
+
+  text-decoration: none;
 }
 
 .landing-page__nav-button:hover {
