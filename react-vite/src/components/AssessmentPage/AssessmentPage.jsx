@@ -53,7 +53,7 @@ function AssessmentPage() {
                 // }, 4000)
 
                 const data = await res.json();
-                setData(prev => prev = data);
+                setData(data);
                 console.log('data: ', data);
             }
             catch (err) {
@@ -65,10 +65,13 @@ function AssessmentPage() {
                 setIsLoading(false);
             }
         }
-        fetchAssessment();
+
+        if (isLoading) {
+            fetchAssessment();
+        }
         // remove interval when component is unmounted.
         return () => clearInterval(intervalID);
-    }, [])
+    }, [isLoading])
 
     const startAssessment = (e) => {
         // when clicked, hide the progress bar
@@ -78,15 +81,35 @@ function AssessmentPage() {
     return (
         <>
             <NavBar />
-            <div className={ startTest ? "wrapper" : "hide"}>
-                <h4>Side Note. Store the response in a use state to grade the assessment.</h4>
-                <h1>Grade title goes here...Grade 2 Math Assessment</h1>
-                <h1>Assessment Container for questions</h1>
-                <h2>Question Title Goes Here</h2>
-                <h2>Multiple choices goes here. Radio buttons</h2>
-                <h2>Submit Assessment button goes at the bottom</h2>
+            <div className={startTest ? "wrapper" : "hide"}>
+                {/* Side Note. Store the response in a use state to grade the assessment*/}
+                <form className="form">
+                    {/* map through the list of questions from the res */}
+                    {data?.questions.map((question, idx) => (
+                        <fieldset key={idx}>
+                            <legend>{`Question #${idx+1}: ${question.question}`}</legend>
+                            <div>
+                                <input type="radio" name={`question${idx}`} id={`q${idx}-a1`} />
+                                <label htmlFor={`q${idx}-a1`}>{question.options[0]}</label>
+                            </div>
+                            <div>
+                                <input type="radio" name={`question${idx}`} id={`q${idx}-a2`} />
+                                <label htmlFor={`q${idx}-a2`}>{question.options[1]}</label>
+                            </div>
+                            <div>
+                                <input type="radio" name={`question${idx}`} id={`q${idx}-a3`} />
+                                <label htmlFor={`q${idx}-a3`}>{question.options[2]}</label>
+                            </div>
+                            <div>
+                                <input type="radio" name={`question${idx}`} id={`q${idx}-a4`} />
+                                <label htmlFor={`q${idx}-a4`}>{question.options[3]}</label>
+                            </div>
+                        </fieldset>
+                    ))}
+                    <button type="submit" className="submit">Submit</button>
+                </form>
             </div>
-            <div className={ startTest ? "hide" : "wrapper"}>
+            <div className={startTest ? "hide" : "wrapper"}>
                 <img className="test-image" src={AssessmentImage} alt="Test Exam Image" />
                 <h2>{`Generating assessment for grade ${gradeLevel} in ${subject}`}</h2>
                 <div className="loading-bar">

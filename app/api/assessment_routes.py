@@ -23,7 +23,7 @@ def generate_assessment():
     subject = "math"
 
     prompt = f"""Generate an assessment of 10 questions in total for grade 2 in the subject of Math?
-    Also, can you formate the assessment in a object?
+    Also, can you formate the assessment in a JSON object with 3 different key properties, "grade", "subject", and "questions". The grade key will have a integer value, the subject will be a string, and the questions will have an array of questions. Each question inside the questions array will be an object with a "question" key, an "options" key, and an "answer" key.
     """
 
     # Generate response from Gemini
@@ -33,7 +33,45 @@ def generate_assessment():
 
     # convert text to json
     # return jsonify(text), 200
-    return jsonify("hello world"), 200
+
+    test =  {
+    "grade": 2,
+    "subject": "Math",
+    "questions": [
+    {
+      "question": "What is 5 + 3?",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": "8"
+    },
+    {
+      "question": "What is 10 - 4?",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "6"
+    },
+    {
+      "question": "What is 7 + 2?",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": "9"
+    }
+    ]
+    }
+
+    return jsonify(test), 200
 
 """
 fetch('/api/assessments', {
