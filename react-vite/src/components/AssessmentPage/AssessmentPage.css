@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.test-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: -30px;
+}
+
+.loading-bar {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 25px;
+    width: 70%;
+    max-width: 400px;
+    position: relative;
+}
+
+.loading-bar::before {
+    content: "";
+    border-radius: 5px;
+    height: 25px;
+    width: 0%;
+    max-width: 400px;
+    background-color: #627fdf;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.loading-percentage {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.hide {
+    display: none;
+}

@@ -23,8 +23,8 @@ def generate_assessment():
     grade_level = 1
     subject = "math"
 
-    prompt = f"""Generate an assessment for grade {grade_level}, and
-    focusing in the subject of {subject}.
+    prompt = f"""Generate an assessment of 10 questions in total for grade 2 in the subject of Math?
+    Also, can you formate the assessment in a object?
     """
 
     # Generate response from Gemini
