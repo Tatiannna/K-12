@@ -5,11 +5,14 @@
     overflow: auto;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0px;
     padding: 0px;
     height: 100%;
-    box-sizing: border-box;
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 

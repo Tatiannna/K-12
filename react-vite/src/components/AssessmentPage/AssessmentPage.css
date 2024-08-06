@@ -5,7 +5,6 @@
     flex-direction: column;
 }
 
-
 .test-image {
     width: 100%;
     max-width: 350px;
@@ -58,6 +57,41 @@
     transform: scale(.98);
 }
 
+fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0px 30px 0px;
+  width: 100%;
+  font-size: 14px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+    width: 100%;
+    max-width: 400px;
+    overflow-wrap: anywhere;
+}
+
 .hide {
     display: none;
+}
+
+.submit {
+    background-color: #d1d5db;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.submit:hover {
+    background-color: #c7cbd0;
+}
+
+.submit:active {
+    transform: scale(.98);
 }
