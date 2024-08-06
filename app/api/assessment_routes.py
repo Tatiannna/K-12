@@ -18,7 +18,6 @@ def generate_assessment():
     """
     Make a API request to the LLM API to generate an assessment
     """
-
     # create dummy data for now
     grade_level = 1
     subject = "math"
@@ -28,12 +27,13 @@ def generate_assessment():
     """
 
     # Generate response from Gemini
-    response = model.generate_content(prompt)
+    # response = model.generate_content(prompt)
     # grab the text from the response
-    text = response.text
+    # text = response.text
 
     # convert text to json
-    return jsonify(text), 200
+    # return jsonify(text), 200
+    return jsonify("hello world"), 200
 
 """
 fetch('/api/assessments', {
