@@ -73,10 +73,6 @@ legend {
     overflow-wrap: anywhere;
 }
 
-.hide {
-    display: none;
-}
-
 .submit {
     background-color: #d1d5db;
     font-size: 16px;
@@ -94,4 +90,28 @@ legend {
 
 .submit:active {
     transform: scale(.98);
+}
+
+.submit:disabled {
+    cursor:not-allowed;
+    background-color: #adb1b5;
+}
+
+.correct::after {
+    content: "✅";
+    font-size: 12px;
+}
+
+.incorrect::after {
+    content: "❌";
+    font-size: 12px;
+}
+
+.mark-wrapper {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.hide {
+    display: none;
 }
