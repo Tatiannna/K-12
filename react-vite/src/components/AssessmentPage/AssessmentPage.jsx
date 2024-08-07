@@ -49,7 +49,7 @@ function AssessmentPage() {
                     clearInterval(intervalID);
                     setLoad((prev) => prev = 100);
                     setIsLoading(false);
-                }, 4000)
+                }, 3000)
 
                 const data = await res.json();
                 setData(data);
@@ -141,9 +141,9 @@ function AssessmentPage() {
                     Score: {parseInt((correct / data?.questions.length) * 100)}
                 </h2>
                 {correct === data?.questions.length && (
-                    <div>
+                    <h4>
                         🚀 Hold the Phone! 🚀 A perfect 100%? Are you secretly a robot sent from the future to ace every test? 🤖💯 Well done! 🌟
-                    </div>
+                    </h4>
                 )}
             </div>
             <div className={startTest ? "hide" : "wrapper"}>
