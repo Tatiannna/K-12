@@ -22,13 +22,16 @@
     padding: 20px 10px;
     font-size: 18px;
     width: 200px;
-    text-align: center;
     background-color: #e8e8e8;
     border-radius: 2px;
     cursor: pointer;
     margin: 25px 0px;
     text-decoration: none;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .grade-level:active {
