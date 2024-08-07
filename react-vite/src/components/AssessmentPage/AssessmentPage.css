@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.test-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: -30px;
+}
+
+.loading-bar {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 25px;
+    width: 70%;
+    max-width: 400px;
+    position: relative;
+}
+
+.loading-bar-fill {
+    height: 25px;
+    width: 0%;
+    max-width: 400px;
+    background-color: #627fdf;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: width 0.25s  ease-in;
+}
+
+.loading-percentage {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.start-btn {
+    background-color: #b7c0eb;
+    font-size: 18px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.start-btn:hover {
+    background-color: #b4bce7;
+}
+
+.start-btn:active {
+    transform: scale(.98);
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0px 30px 0px;
+  width: 100%;
+  font-size: 14px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+    width: 100%;
+    max-width: 400px;
+    overflow-wrap: anywhere;
+}
+
+.submit {
+    background-color: #d1d5db;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.submit:hover {
+    background-color: #c7cbd0;
+}
+
+.submit:active {
+    transform: scale(.98);
+}
+
+.submit:disabled {
+    cursor:not-allowed;
+    background-color: #adb1b5;
+}
+
+.correct::after {
+    content: "✅";
+    font-size: 12px;
+}
+
+.incorrect::after {
+    content: "❌";
+    font-size: 12px;
+}
+
+.mark-wrapper {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.hide {
+    display: none;
+}

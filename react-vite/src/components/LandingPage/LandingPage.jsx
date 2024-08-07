@@ -1,9 +1,13 @@
 import "./LandingPage.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function LandingPage() {
+  const sessionUser = useSelector((state) => state.session.user);
   const navigate = useNavigate()
 
+  // redirect user back to the /home page if logged in.
+  if (sessionUser) return <Navigate to="/home" replace={true} />;
   const handleLogin = () => {
     navigate("/login")
   }
