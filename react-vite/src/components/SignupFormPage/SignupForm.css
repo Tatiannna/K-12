@@ -1,0 +1,23 @@
+.signup-page__main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+    background-image: url("../../Images/landing-page.jpg");
+    background-size: cover;
+}
+
+.signup-form {
+    width: 100%;
+}
+
+.signup-page-left {
+    width: 40%;
+    margin-right: 10px;
+}
+
+.signup-page-right {
+    width: 20%;
+}
