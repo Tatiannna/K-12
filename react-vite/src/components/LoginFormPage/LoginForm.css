@@ -1,0 +1,23 @@
+.form-label{
+    color: white;
+    display:block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-input{
+    border-radius: 6px;
+    border: none;
+    height: 25px;
+    width: 250px;
+}
+
+.login-button-container{
+    margin-top: 25px;
+    text-align: center;
+}
+
+.error{
+    text-align: center;
+    color: red;
+}
