@@ -8,8 +8,13 @@
 .form-input{
     border-radius: 6px;
     border: none;
-    height: 25px;
+    height: 28px;
     width: 250px;
+    text-align: center;
+}
+
+.form-input:focus{
+    outline: none;
 }
 
 .login-button-container{
