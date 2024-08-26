@@ -47,6 +47,11 @@ function HomePage() {
                 <NavLink to="/grade/1" className="grade-level">Grade 1</NavLink>
                 <NavLink to="/grade/2" className="grade-level">Grade 2</NavLink>
                 <NavLink to="/grade/3" className="grade-level">Grade 3</NavLink>
+                <NavLink to="/grade/4" className="grade-level">Grade 4</NavLink>
+                <NavLink to="/grade/5" className="grade-level">Grade 5</NavLink>
+                <NavLink to="/grade/6" className="grade-level">Grade 6</NavLink>
+                <NavLink to="/grade/7" className="grade-level">Grade 7</NavLink>
+                <NavLink to="/grade/8" className="grade-level">Grade 8</NavLink>
             </div>
         </>
     );
