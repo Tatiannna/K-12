@@ -53,50 +53,52 @@ function LoginFormPage() {
           <div className="landing-page__main-content-info">
             <h1>Log In</h1>
           </div>
+          
           {errors.length > 0 &&
           errors.map((message) => <p className="error" key={message}>{message}</p>)}
           
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label className="form-label">
-              Email
-              <div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label className="form-label">
+                Email
+                <div>
+                  <input
+                    className="form-input"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+              </label>
+            </div>
+            
+            {errors.email && <p className="error">{errors.email}</p>}
+            <div>
+              <label className="form-label">
+                Password
+                <div>
                 <input
                   className="form-input"
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-              </div>
-            </label>
-          </div>
-          
-          {errors.email && <p className="error">{errors.email}</p>}
-          <div>
-
-            <label className="form-label">
-              Password
-              <div>
-              <input
-                className="form-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              </div>
-              
-            </label>
+                </div>
+              </label>
             </div>
-          {errors.password && <p className="error">{errors.password}</p>}
-          <div className='login-button-container'>
-            <button className="landing-page__main-button" type="submit">Log In</button>
-          </div>
-          <div className='login-button-container'>
-            <button className="landing-page__main-button" onClick={demoLogin}>Demo User</button>
-          </div>
-        </form>
+
+            {errors.password && <p className="error">{errors.password}</p>}
+
+            <div className='login-button-container'>
+              <button className="landing-page__main-button" type="submit">Log In</button>
+            </div>
+
+            <div className='login-button-container'>
+              <button className="landing-page__main-button" onClick={demoLogin}>Demo User</button>
+            </div>
+          </form>
         </div>
       </div>
     </>
