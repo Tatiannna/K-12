@@ -2,6 +2,8 @@ from flask import Blueprint, jsonify, request
 import json
 import google.generativeai as genai
 import os
+from app.models import Assessment
+
 
 # grab api key from env
 GOOGLE_API_KEY = os.environ.get("GOOGLE_GEMINI_API_KEY")
@@ -11,6 +13,23 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 # set up API route
 assessment_routes = Blueprint('assessments', __name__)
+
+
+
+@assessment_routes.route('/assessments')
+def get_assessments():
+
+  assessments = Assessment.query.all()
+  return {'assessments': [assessment.to_dict() for assessment in assessments]}
+
+
+@assessment_routes.route('/assessments/<int:id>')
+def get_assessment(id):
+
+  assessment = Assessment.query.get(id)
+  print(type(assessment))
+  # return {'assessment': [assessment.to_dict() ]}
+  return assessment.to_dict()
 
 
 @assessment_routes.route('/assessments', methods=['POST'])
