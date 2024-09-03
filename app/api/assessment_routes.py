@@ -27,8 +27,6 @@ def get_assessments():
 def get_assessment(id):
 
   assessment = Assessment.query.get(id)
-  print(type(assessment))
-  # return {'assessment': [assessment.to_dict() ]}
   return assessment.to_dict()
 
 
