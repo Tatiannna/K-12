@@ -28,20 +28,19 @@ export const getAssessments = (userId) => async dispatch => {
     let res = await fetch(`/api/users/${userId}/assessments`);
 
     if (res.ok) {
-		const data = await response.json();
+		const data = await res.json();
 		if (data.errors) {
 			return;
 		}
-		dispatch(receiveAssessments(data));
+		dispatch(receiveAssessments(data.assessments));
 	}
 };
 
 const assessmentReducer = (state = {}, action) => {
-    let newState = {...state}
 
     switch(action.type){
         case RECEIVE_ASSESSMENTS:
-            return { ...newState, ...action.assessments};
+            return action.assessments;
         default:
             return state;
     }
