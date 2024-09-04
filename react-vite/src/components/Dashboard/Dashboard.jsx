@@ -13,11 +13,10 @@ const Dashboard = () => {
 
     useEffect( () => {
         dispatch(getAssessments(currentUser.id));
-        
     }, [dispatch, currentUser] );
 
     useEffect( () => {
-        setStats(calculateStats())
+        setStats(calculateStats());
     }, [assessments])
 
     const assessmentsArray = Object.values(assessments);
@@ -57,11 +56,11 @@ const Dashboard = () => {
     return(
         <>
             <h1>My Assessment Summary</h1>
-            <p>Assessments Taken: {stats.numAssessmentsTaken}</p>
-            <p>Math Assessments Taken: {stats.numMathTaken}</p>
-            <p>Reading Assessments Taken: {stats.numReadingTaken}</p>
-            <p>Average Math Score: {stats.averageMathScore}</p>
-            <p>Average Reading Score: {stats.averageReadingScore}</p>
+            <p>Assessments Taken: {stats?.numAssessmentsTaken}</p>
+            <p>Math Assessments Taken: {stats?.numMathTaken}</p>
+            <p>Reading Assessments Taken: {stats?.numReadingTaken}</p>
+            <p>Average Math Score: {stats?.averageMathScore}</p>
+            <p>Average Reading Score: {stats?.averageReadingScore}</p>
             <p>Grades: </p>
             <ul>
                 {assessmentsArray.map(assessment => (
