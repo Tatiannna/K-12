@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 import json
 import google.generativeai as genai
 import os
-from app.models import Assessment
+from app.models import Assessment, db
 
 
 # grab api key from env
@@ -28,6 +28,20 @@ def get_assessment(id):
 
   assessment = Assessment.query.get(id)
   return assessment.to_dict()
+
+@assessment_routes.route('/assessments/add', methods=['POST'])
+def add_assessment():
+
+  assessment = Assessment()
+  data = request.get_json()
+
+  assessment.subject = data['subject']
+  assessment.grade = data['grade']
+  assessment.user_id = data['user_id']
+
+  db.session.add(assessment)
+  db.session.commit()
+  return assessment.to_dict(), 200
 
 
 @assessment_routes.route('/assessments', methods=['POST'])
