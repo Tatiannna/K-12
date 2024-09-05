@@ -23,6 +23,22 @@ const removeAssessments = () => {
     }
 };
 
+export const createAssessment = (assessment) => async (dispatch) => {
+    const res = await fetch(`/api/assessments/add`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(assessment)
+    });
+
+    let data =  await res.json();
+    if (res.ok){
+        dispatch(receiveAssessment(data));
+    }else{
+        throw(data);
+    }
+}
 
 export const getAssessments = (userId) => async dispatch => {
     let res = await fetch(`/api/users/${userId}/assessments`);
@@ -37,9 +53,13 @@ export const getAssessments = (userId) => async dispatch => {
 };
 
 const assessmentReducer = (state = {}, action) => {
+    let newState = {...state}
 
     switch(action.type){
         case RECEIVE_ASSESSMENTS:
+            return action.assessments;
+        case RECEIVE_ASSESSMENT:
+            newState[action.assessment.id] = action.assessment;
             return action.assessments;
         default:
             return state;
