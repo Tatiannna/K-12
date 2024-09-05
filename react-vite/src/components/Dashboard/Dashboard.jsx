@@ -34,15 +34,15 @@ const Dashboard = () => {
         for (let i = 0; i < assessmentsArray.length; i++){
             if (assessmentsArray[i].subject == 'Mathematics'){
                 numMathTaken++;
-                totalMathScore += assessmentsArray[i].grade;
+                totalMathScore += assessmentsArray[i].score;
             }else if (assessmentsArray[i].subject == 'Reading'){
                 numReadingTaken++;
-                totalReadingScore += assessmentsArray[i].grade;
+                totalReadingScore += assessmentsArray[i].score;
             }
         }
 
-        averageMathScore = totalMathScore / numMathTaken;
-        averageReadingScore = totalReadingScore / numReadingTaken;
+        averageMathScore = Math.round(totalMathScore / numMathTaken);
+        averageReadingScore = Math.round(totalReadingScore / numReadingTaken);
 
         return {
             numAssessmentsTaken,
@@ -64,7 +64,7 @@ const Dashboard = () => {
             <p>Grades: </p>
             <ul>
                 {assessmentsArray.map(assessment => (
-                <li key={assessment.id}>{assessment.subject} {assessment.grade} </li>))}
+                <li key={assessment.id}> Grade: {assessment.grade_level} Subject: {assessment.subject} Score: {assessment.score} Date: {assessment.date_taken.split(' ')[0]}</li>))}
             </ul>
         </>
     );
