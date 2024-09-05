@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User
+from app.models import Assessment
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +24,12 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/<int:id>/assessments')
+@login_required
+def user_assessments(id):
+    
+    user = User.query.get(id)
+    assessments = user.assessments
+
+    return {'assessments': [assessment.to_dict() for assessment in assessments]}

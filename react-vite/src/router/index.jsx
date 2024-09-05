@@ -6,6 +6,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import HomePage from "../components/HomePage";
 import SelectedGradeLevelPage from '../components/SelectedGradeLevelPage/';
 import AssessmentPage from '../components/AssessmentPage/';
+import Dashboard from '../components/Dashboard/Dashboard';
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
         path: "/grade/:gradeLevel/:subject",
         element: <AssessmentPage/>,
       },
+      {
+        path: "/Dashboard",
+        element: <Dashboard/>
+      }
     ],
   },
 ]);
