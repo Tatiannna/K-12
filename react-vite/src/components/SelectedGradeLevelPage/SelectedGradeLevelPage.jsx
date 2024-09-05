@@ -45,8 +45,8 @@ function SelectedGradeLevelPage() {
             <h1 className="title">Please Select A Subject</h1>
         </div>
         <div className="grade-level-container">
-            <NavLink to={`/grade/${gradeLevel}/math`} className="grade-level">Math</NavLink>
-            <NavLink to={`/grade/${gradeLevel}/reading`} className="grade-level">Reading Comprehension</NavLink>
+            <NavLink to={`/grade/${gradeLevel}/Mathematics`} className="grade-level">Math</NavLink>
+            <NavLink to={`/grade/${gradeLevel}/Reading`} className="grade-level">Reading Comprehension</NavLink>
         </div>
     </>
     );

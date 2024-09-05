@@ -5,8 +5,10 @@ import { Navigate, useNavigate, NavLink, useParams } from "react-router-dom";
 import NavBar from "../Navigation/";
 import "./AssessmentPage.css";
 import AssessmentImage from "../../Images/k12AssessmentImage.png";
+import { createAssessment } from "../../redux/assessments";
 
 function AssessmentPage() {
+    const dispatch = useDispatch();
     const { gradeLevel, subject } = useParams();
     // handle the loading percentage
     const [load, setLoad] = useState(0);
@@ -20,6 +22,10 @@ function AssessmentPage() {
     const [disable, setDisable] = useState(false);
     // handle data from fetch request
     const [data, setData] = useState(null);
+    // get currentUserID for table row entry
+    const currentUser = useSelector(state => state.session.user);
+
+
 
     useEffect(() => {
         // increment loading percentage
@@ -71,14 +77,20 @@ function AssessmentPage() {
         return () => clearInterval(intervalID);
     }, [isLoading])
 
+
+
+
     // redirect user back to the / page if not logged in.
     const sessionUser = useSelector((state) => state.session.user);
     if (!sessionUser) return <Navigate to="/" replace={true} />;
+
+
 
     const startAssessment = (e) => {
         // when clicked, hide the progress bar
         setStartTest(true);
     }
+
 
     const submitTest = (e) => {
         e.preventDefault();
@@ -86,13 +98,24 @@ function AssessmentPage() {
         setDisable(true);
         // grade each multiple choice
         const formData = new FormData(e.target);
+        let correctCount = 0;
         data?.questions.forEach((question, idx) => {
             const selectedAnswer = formData.get(`question${idx}`);
             // compare selected answer
             if (selectedAnswer === question.answer) {
-                setCorrect(prev => prev += 1);
+                correctCount++;
             }
         })
+        setCorrect(correctCount)
+       
+        // Add assessment stats to db
+        let assessment = {
+            score: correctCount / 5 * 100,
+            user_id: currentUser.id,
+            grade_level: gradeLevel,
+            subject
+        }
+        dispatch(createAssessment(assessment));
     }
 
     return (
