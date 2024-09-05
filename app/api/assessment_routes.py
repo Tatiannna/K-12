@@ -36,8 +36,9 @@ def add_assessment():
   data = request.get_json()
 
   assessment.subject = data['subject']
-  assessment.grade = data['grade']
+  assessment.grade_level = data['grade_level']
   assessment.user_id = data['user_id']
+  assessment.score = data['score']
 
   db.session.add(assessment)
   db.session.commit()
