@@ -6,53 +6,63 @@ def seed_assessments(users):
 
     assessment1 = Assessment(
         subject='Mathematics', 
-        grade=100, 
-        user_id= users[0].id )
+        score=100, 
+        user_id= users[0].id,
+        grade_level = 8 ) 
 
     assessment2 = Assessment(
         subject='Reading', 
-        grade=40, 
-        user_id= users[0].id )
+        score=40, 
+        user_id= users[0].id,
+        grade_level = 8 )
 
     assessment3 = Assessment(
         subject='Mathematics', 
-        grade=90,
-         user_id= users[0].id )
+        score=90,
+        user_id= users[0].id,
+        grade_level = 8 )
 
     assessment4 = Assessment(
         subject='Reading', 
-        grade=10, 
-        user_id= users[0].id )
+        score=10, 
+        user_id= users[0].id,
+        grade_level = 8)
 
     assessment5 = Assessment(
         subject='Mathematics', 
-        grade=0, 
-        user_id=users[1].id )
+        score=0, 
+        user_id=users[1].id, 
+        grade_level = 3)
 
     assessment6 = Assessment(
         subject='Reading', 
-        grade=70, 
-        user_id=users[1].id )
+        score=70, 
+        user_id=users[1].id,
+        grade_level = 3 )
 
     assessment7 = Assessment(
         subject='Mathematics', 
-        grade=50, 
-        user_id= users[1].id )
+        score=50, 
+        user_id= users[1].id,
+        grade_level = 3)
 
     assessment8 = Assessment(
         subject='Reading', 
-        grade=100, 
-        user_id= users[2].id )
+        score=100, 
+        user_id= users[2].id,
+        grade_level = 12)
 
     assessment9 = Assessment(
         subject='Mathematics', 
-        grade=90, 
-        user_id= users[2].id)
+        score=90, 
+        user_id= users[2].id,
+        grade_level = 12)
 
     assessment10 = Assessment(
         subject='Mathematics', 
-        grade=20, 
-        user_id= users[2].id)
+        score=20, 
+        user_id= users[2].id,
+        grade_level = 12)
 
     db.session.add(assessment1)
     db.session.add(assessment2)
