@@ -26,6 +26,8 @@ class Assessment(db.Model):
         return {
             'id': self.id,
             'subject': self.subject,
-            'grade': self.grade,
-            'user_id': self.user_id
+            'grade_level': self.grade_level,
+            'user_id': self.user_id,
+            'score': self.score,
+            'date_taken': self.date_taken
         }
